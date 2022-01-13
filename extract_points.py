@@ -32,7 +32,7 @@ def get_values_from_points(year):
     pts = gpd.read_file(f'../../../mendelu/Marketa/land_cover/Top_1000_{year}.shp')
     src = rasterio.open(f'../../../mendelu/Marketa/land_cover/ESA_LC_classes{year}.tif')
     points = pts['geometry']
-    entry = 0
+    entry = 1
     values = []
     names = []
 
@@ -51,11 +51,12 @@ def get_values_from_points(year):
         print(f'Row {entry} done')
         entry = entry + 1
 
-    pts['Land Cover'] = values
+    pts['Land_Cover'] = values
+    pts['Land_Cover_Name'] = names
 
     pts.to_csv(f'../../../mendelu/Marketa/land_cover/Top_1000_{year}_LC.csv', index = False)
 
-years = range(2000, 2002)
+years = range(2000, 2020)
 
 for year in years:
     print(f'Working on year {year}')
