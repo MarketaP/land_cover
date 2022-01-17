@@ -71,7 +71,7 @@ def get_values_from_points(year):
 
     pts.to_csv(f'../../../mendelu/Marketa/land_cover/Top_1000_{year}_LC.csv', index = False)
 
-years = range(2001, 2020)
+years = range(2004, 2020)
 
 for year in years:
     print(f'Working on year {year}')
